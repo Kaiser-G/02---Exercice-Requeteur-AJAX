@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax requeteur</title>
+</head>
+
+<body>
+    <h1>Exercice requeteur AJAX</h1>
+
+    <div id="Requete">
+        <p>Saisir l'Url à appeler :</p>
+        <textarea id="url" name="textarea" rows="10" cols="50" placeholder="Saisir url"></textarea>
+        <br>
+        <button id="btnGo">Lancer la requette</button>
+    </div>
+    <div id="Resultat"></div>
+
+    <script src="Ajax_class.js"></script>
+
+
+    <script>
+        // fonction d'appel AJAX
+        function AppelAjax() {
+            // alert("test")
+            //Effacer la zone d'affichage
+            let affichage = document.getElementById("Resultat");
+            affichage.innerHTML = "";
+            //Récupération de l'URL
+            let url = document.getElementById("url").value;
+            get(url, RetourAjax, ErreurAjax);
+        }
+
+        // Les fonctions de retour AJAX
+        function RetourAjax(reponse) {
+            //Ecrire le résultat dans la zone d'affichage
+            let affichage = document.getElementById("Resultat");
+            affichage.innerHTML = reponse;
+        }
+
+        function ErreurAjax(reponse) {
+            //ecrire le résultat dans la zone d'affichage
+            let affichage = document.getElementById("Resultat");
+            affichage.innerHTML = "Erreur dans la requete";
+        }
+
+        // Programme principal
+        window.addEventListener('load', (event) => {
+            //interception du click sur le bouton
+            let btn = document.getElementById("btnGo");
+            btn.addEventListener("click", AppelAjax, false);
+        });
+    </script>
+</body>
+
+</html>
