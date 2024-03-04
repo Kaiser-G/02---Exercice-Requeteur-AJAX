@@ -18,14 +18,13 @@
     </div>
     <div id="Resultat"></div>
 
-    <button id="btn">test</button>
     <script src="ajax_Js_ES6.js"></script>
 
 
     <script>
         // fonction d'appel AJAX
         function AppelAjax() {
-            alert("test")
+            // alert("test")
             //Effacer la zone d'affichage
             let affichage = document.getElementById("Resultat");
             affichage.innerHTML = "";
@@ -50,10 +49,8 @@
         // Programme principal
         window.addEventListener('load', (event) => {
             //interception du click sur le bouton
-            let btn = document.getElementById("btnGO");
-            let btn2 = document.getElementById("btn");
-
-            btn2.addEventListener("click", AppelAjax, false);
+            let btn = document.getElementById("btnGo");
+            btn.addEventListener("click", AppelAjax, false);
         });
     </script>
 </body>
